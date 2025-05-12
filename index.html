@@ -1,0 +1,32 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
+<script>
+/* global nn, p5 */
+  let cookie = (p) => {
+    p.setup = () => {
+      p.createCanvas(nn.width, nn.height)
+    }
+    
+    p.draw = () => {
+      p.fill(255, 215, 0)
+      p.stroke(255, 215, 0)
+      p.strokeWeight(1)
+      p.beginShape()
+      p.vertex(nn.width / 15, nn.height / 8)
+      p.bezierVertex(0, nn.height / 8, 0, nn.height * 7 / 8, nn.width / 2, nn.height * 7 / 8)
+      p.vertex(nn.width / 15, nn.height / 8)
+      p.bezierVertex(nn.width * 2 / 3, nn.height / 4, nn.width / 2, nn.height * 5 / 8, nn.width / 2, nn.height * 7 / 8)
+      p.endShape()
+      
+      p.beginShape()
+      p.vertex(nn.width * 14 / 15, nn.height / 8)
+      p.bezierVertex(nn.width, nn.height / 8, nn.width, nn.height * 7 / 8, nn.width / 2, nn.height * 7 / 8)
+      p.vertex(nn.width * 14 / 15, nn.height / 8)
+      p.bezierVertex(nn.width / 3, nn.height / 4, nn.width / 2, nn.height * 5 / 8, nn.width / 2, nn.height * 7 / 8)
+      p.endShape()
+    }
+  }
+  
+  new p5(cookie)
+
+</script>
