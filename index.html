@@ -5,25 +5,33 @@
   let cookie = (p) => {
     p.setup = () => {
       p.createCanvas(nn.width, nn.height)
+      p.background(195, 177, 225)
     }
     
     p.draw = () => {
       p.fill(255, 215, 0)
       p.stroke(255, 215, 0)
       p.strokeWeight(1)
+      
+      p.push()
       p.beginShape()
       p.vertex(nn.width / 2 - 250, nn.height / 2 - 250)
       p.bezierVertex(nn.width / 2 - 325, nn.height / 2 - 250, nn.width / 2 - 325, nn.height / 2 + 210, nn.width / 2, nn.height / 2 + 210)
       p.vertex(nn.width / 2 - 250, nn.height / 2 - 250)
       p.bezierVertex(nn.width / 2 + 50, nn.height / 2 - 105, nn.width / 2, nn.height / 2 + 10, nn.width / 2, nn.height / 2 + 210)
       p.endShape()
-      
+      p.pop()
+          
       p.beginShape()
       p.vertex(nn.width / 2 + 250, nn.height / 2 - 250)
       p.bezierVertex(nn.width / 2 + 325, nn.height / 2 - 250, nn.width / 2 + 325, nn.height / 2 + 210, nn.width / 2, nn.height / 2 + 210)
       p.vertex(nn.width / 2 + 250, nn.height / 2 - 250)
       p.bezierVertex(nn.width / 2 - 50, nn.height / 2 - 105, nn.width / 2, nn.height / 2 + 10, nn.width / 2, nn.height / 2 + 210)
       p.endShape()
+      
+      // nn.on('click', () => {
+        
+      // })
     }
   }
   
