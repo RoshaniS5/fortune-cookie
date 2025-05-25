@@ -2,7 +2,17 @@
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
 <script>
 /* global nn, p5 */
+  
   let cookie = (p) => {
+    let url = 'https://cataas.com/cat'
+    let cat_img
+    let imageReady = false
+    let imageDisplayed = false
+    
+    async function fortune () {
+      return url + '?timestamp=' + Date.now()
+    }
+    
     p.setup = () => {
       p.createCanvas(nn.width, nn.height)
       p.background(195, 177, 225)
@@ -12,13 +22,10 @@
       p.fill(255, 215, 0)
       
       p.push()
-      // p.strokeWeight(2)
       p.beginShape()
       p.vertex(nn.width / 2 - 250, nn.height / 2 - 250)
       p.bezierVertex(nn.width / 2 - 325, nn.height / 2 - 250, nn.width / 2 - 325, nn.height / 2 + 210, nn.width / 2, nn.height / 2 + 210)
-      // p.strokeWeight(0)
       p.vertex(nn.width / 2 - 250, nn.height / 2 - 250)
-      // p.strokeWeight(0)
       p.bezierVertex(nn.width / 2 + 50, nn.height / 2 - 105, nn.width / 2, nn.height / 2 + 10, nn.width / 2, nn.height / 2 + 210)
       p.endShape()
       p.pop()
@@ -45,11 +52,11 @@
     
     let opencookie = false
     let angle = 0
+    
     p.draw = () => {
       if (opencookie && angle < 25) {
         p.clear()
         p.background(195, 177, 225)
-        p.createCanvas(nn.width, nn.height)
         p.background(195, 177, 225)
 
         p.fill(255, 215, 0)
@@ -104,14 +111,19 @@
         
         angle = angle + 0.8
       }
-      if (angle > 25) {
+      if (angle > 25 && imageReady && !imageDisplayed) {
         opencookie = false
+        p.image(cat_img, 0, 0)
       }
     }
     
     
     nn.on('click', () => {
       opencookie = true
+      p.loadImage(url, img => {
+        cat_img = img
+        imageReady = true
+      })
     })
   }
   
