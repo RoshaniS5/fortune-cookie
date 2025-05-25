@@ -29,6 +29,18 @@
       p.vertex(nn.width / 2 + 250, nn.height / 2 - 250)
       p.bezierVertex(nn.width / 2 - 50, nn.height / 2 - 105, nn.width / 2, nn.height / 2 + 10, nn.width / 2, nn.height / 2 + 210)
       p.endShape()
+      
+      p.push()
+      p.noFill()
+      p.stroke(255, 192, 0, 200)
+      p.strokeWeight(20)
+      p.bezier(nn.width / 2 - 250, nn.height / 2 - 250, nn.width / 2 - 325, nn.height / 2 - 250, nn.width / 2 - 325, nn.height / 2 + 210, nn.width / 2, nn.height / 2 + 210)  
+      p.bezier(nn.width / 2 + 250, nn.height / 2 - 250, nn.width / 2 + 325, nn.height / 2 - 250, nn.width / 2 + 325, nn.height / 2 + 210, nn.width / 2, nn.height / 2 + 210)
+      p.stroke(255, 255, 197, 50)
+      p.strokeWeight(7)
+      p.bezier(nn.width / 2 - 250, nn.height / 2 - 250, nn.width / 2 + 50, nn.height / 2 - 105, nn.width / 2, nn.height / 2 + 75, nn.width / 2, nn.height / 2 + 15)
+      p.bezier(nn.width / 2 + 250, nn.height / 2 - 250, nn.width / 2 - 50, nn.height / 2 - 105, nn.width / 2, nn.height / 2 + 75, nn.width / 2, nn.height / 2 + 15)
+      p.pop()
     }
     
     let opencookie = false
@@ -65,6 +77,31 @@
         p.bezierVertex(-50, -315, 0, -200, 0, 0)
         p.endShape()
         p.pop()
+        
+        p.push()
+        p.translate(nn.width / 2, nn.height / 2 + 210)
+        p.rotate(-1 * angle)
+        p.noFill()
+        p.stroke(255, 192, 0, 200)
+        p.strokeWeight(20)
+        p.bezier(-250, -460, -325, -460, -325, 0, 0, 0)
+        p.stroke(255, 255, 197, 50)
+        p.strokeWeight(7)
+        p.bezier(-250, -460, 50, -315, 0, -200, 0, 0)
+        p.pop()
+        
+        p.push()
+        p.translate(nn.width / 2, nn.height / 2 + 210)
+        p.rotate(angle)
+        p.noFill()
+        p.stroke(255, 192, 0, 200)
+        p.strokeWeight(20)
+        p.bezier(250, -460, 325, -460, 325, 0, 0, 0)
+        p.stroke(255, 255, 197, 50)
+        p.strokeWeight(7)
+        p.bezier(250, -460, -50, -315, 0, -200, 0, 0)
+        p.pop()
+        
         angle = angle + 0.8
       }
       if (angle > 25) {
