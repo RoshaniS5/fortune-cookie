@@ -21,6 +21,9 @@
       
       p.createCanvas(nn.width, nn.height)
       p.background(195, 177, 225)
+      p.rectMode(p.CENTER)
+      p.textSize(32)
+      p.text('FORTUNE KITTY', nn.width / 2, 0)
       p.angleMode(p.DEGREES)
       p.stroke(255, 192, 0)
       p.strokeWeight(0)
@@ -68,7 +71,6 @@
         p.stroke(255, 215, 0)
         p.strokeWeight(1)
 
-        // start making the cat image appear
         if (imageReady && !imageDisplayed) {
           cat_img.resize(nn.width / 4, 0)
           p.image(cat_img, nn.width / 2 - cat_img.width / 2, nn.height / 2 - cat_img.height / 2)
